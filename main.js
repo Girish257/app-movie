@@ -15,7 +15,7 @@ function fetchData() {
             let onlyThree = data.results.slice(0, 3)
 
             onlyThree.forEach((dataImg, index) => {
-            
+
                 const carouselItem = document.createElement('div');
                 carouselItem.classList.add('carousel-item');
 
@@ -126,13 +126,12 @@ function MovieList() {
 
 
 function handleScroll() {
-   
+
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
     if (scrollTop + clientHeight >= scrollHeight - 100) {
         if (current_div == 'home') {
             MovieList();
         } else {
-
             search()
         }
 
@@ -145,6 +144,7 @@ window.addEventListener("scroll", handleScroll);
 let currentSearchPage = 1;
 let totalSearchPages = 1;
 let isSearchLoading = false;
+let oneResult;
 
 
 const searchInput = document.getElementById("searchInput");
@@ -156,14 +156,17 @@ result.style.display = "none";
 
 searchTerm = ''
 
+
 function search() {
 
-    if (!isSearchLoading) {
+    if (!isSearchLoading && oneResult != currentSearchPage) {
+
         isSearchLoading = true;
+
         fetch(`https://api.themoviedb.org/3/search/movie?${apiKey}&page=${currentSearchPage}&query=${searchTerm}`)
             .then((response) => response.json())
             .then((data) => {
-             
+
                 if (currentSearchPage === 1) {
                     totalSearchPages = data.total_pages;
 
@@ -177,17 +180,17 @@ function search() {
                     if (movies.length > 0) {
 
                         output += `
-            
-                    <div class="searchCards">
-
-                        <img class="abc" data-movie-id="${allData.id}" src="https://image.tmdb.org/t/p/w500/${allData.poster_path}" alt="${allData.title} Poster">
-                        <h5>Movie Name: ${allData.title}</h5>
-                        <h6>Release Date: ${allData.release_date}</h6>
-                        <h6>Movie Rating: ${allData.vote_average}</h6>
-
-
-                        </div>
-                `;
+                
+                        <div class="searchCards">
+    
+                            <img class="abc" data-movie-id="${allData.id}" src="https://image.tmdb.org/t/p/w500/${allData.poster_path}" alt="${allData.title} Poster">
+                            <h5>Movie Name: ${allData.title}</h5>
+                            <h6>Release Date: ${allData.release_date}</h6>
+                            <h6>Movie Rating: ${allData.vote_average}</h6>
+    
+    
+                            </div>
+                    `;
                     } else {
                         output = '<p>No movies found.</p>';
                     }
@@ -218,9 +221,14 @@ function search() {
                 console.error("Error fetching data:", error);
 
             });
+        oneResult = currentSearchPage;
         current_div = 'search'
     }
+
+
+
 }
+
 
 
 document.getElementById("searchform").addEventListener("submit", function (event) {

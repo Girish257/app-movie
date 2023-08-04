@@ -165,6 +165,7 @@ p {
 }
 
 .searchCards {
+    cursor: pointer;
     text-align: center;
     width: 23%;
     text-decoration: none;
