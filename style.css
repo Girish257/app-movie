@@ -1,0 +1,194 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    padding: 10px;
+    text-align: center;
+    background-color: darkgray;
+    color: black;
+    font-size: 10px;
+}
+
+#container {
+    background-color: lightgrey;
+    width: 100%;
+    height: 120px;
+}
+
+
+#silder {
+    width: 20%;
+    margin-left: 39%;
+}
+
+.d-block {
+    cursor: pointer;
+}
+
+#movielist {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.card-text {
+    position: absolute;
+    cursor: pointer;
+    display: none;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: gray;
+    padding: 1.5rem 1rem;
+    overflow: hidden;
+    max-height: 100%;
+    transform: translateY(101%);
+    transition: 0.3s ease-in;
+    border-bottom: 100px;
+}
+
+.card:hover .card-text {
+    height: 90px;
+    transform: translateY(0);
+    display: block;
+    color: blue;
+
+}
+
+.col {
+    width: 100%;
+    height: 200px;
+
+}
+
+.a1 {
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(20rem, 1fr));
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.result {
+    max-width: 300px;
+}
+
+.cards {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-bottom: 1px solid #00000045;
+    background-color: #dfece7;
+    margin: 10px;
+    transition-duration: 2000ms !important;
+    position: relative;
+}
+
+/* Search css */
+
+.d-flex {
+    padding-top: 40px;
+    padding-left: 30%;
+}
+
+.abc {
+    padding: 10px;
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.resultImage {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#searchInput {
+    border-radius: 5px;
+    width: 700px !important;
+}
+
+.btn {
+    border-radius: 20px;
+}
+
+
+/* Movie details css */
+#movieDetails {
+    padding-right: 50px;
+    display: flex;
+    background: lightgray;
+    width: 90%;
+    margin-left: 90px;
+}
+
+h2 {
+    margin: 30px
+}
+
+p {
+    margin: 50px
+}
+
+
+/* Movie cast css */
+.castdiv {
+    padding-left: 120px;
+    background-color: blanchedalmond;
+    width: 95%;
+    margin-left: 56px;
+    height: 400px;
+
+}
+
+.imgWidth {
+    height: 300px;
+    width: 200px;
+}
+
+.new {
+    display: flex;
+    padding-top: 10px;
+}
+
+.cast-container {
+    padding: 10px;
+}
+
+
+.details-container {
+    padding: 35px;
+}
+
+.searchCards {
+    text-align: center;
+    width: 23%;
+    text-decoration: none;
+    border: none;
+    background-color: gray;
+    margin: 10px;
+    transition-duration: 2000ms !important;
+    position: relative;
+    border-radius: 10px;
+
+}
+
+h4 {
+    margin-top: 10px;
+    height: 75px;
+}
+
+#foot1 {
+    height: 150px;
+    background-color: lightslategray;
+}
+
+.copy {
+    padding: 25px;
+    text-align: center;
+
+}
